@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CULANAG PORTFOLIO</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-color: #121212; 
+            color: #e0e0e0; 
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #1f3a3a; 
+            color: #f0f0f0;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            opacity: 0.9;
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: #f0f0f0;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        /* SECTIONS */
+        section {
+            background-color: #1c1c1c; 
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            color: #4db6ac;
+            margin-top: 0;
+            border-left: 5px solid #80cbc4;
+            padding-left: 10px;
+        }
+
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto;
+            border: 4px solid #80cbc4;
+        }
+
+               .post-title {
+            margin-top: 25px;
+            color: #4db6ac;
+        }
+
+                .infographic {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+               .placeholder-infographic {
+            width: 150px;
+            height: 150px;
+            background-color: #333;
+            display: inline-block;
+            margin: 15px;
+            border-radius: 10px;
+            line-height: 150px;
+            text-align: center;
+            color: #999;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .infographic3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .infographic3 .card {
+            background-color: #2c2c2c;
+            border-left: 5px solid #2ecc71;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .infographic3 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.5);
+        }
+
+        .infographic3 .card h3 {
+            color: #2ecc71;
+            margin-top: 0;
+        }
+
+        .infographic3 .card p {
+            color: #d0d0d0;
+            line-height: 1.6;
+        }
+
+                .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 60px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .flowchart .card, .flowchart .card-difference {
+            background-color: #2c2c2c;
+            border-left: 6px solid #2ecc71;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .flowchart .card-difference {
+            border-left: 6px solid #e67e22;
+            width: 400px;
+        }
+
+        .flowchart .card p, .flowchart .card-difference p {
+            line-height: 1.6;
+            color: #d0d0d0;
+            margin: 0;
+        }
+
+        .flowchart .arrow {
+            width: 2px;
+            height: 50px;
+            background-color: #2ecc71;
+            position: relative;
+        }
+
+        .flowchart .arrow::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: -6px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: #2ecc71 transparent transparent transparent;
+        }
+
+               footer {
+            background-color: #0d1b1b;
+            color: #f0f0f0;
+            text-align: center;
+            padding: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .card, .card-difference, .flowchart .card, .flowchart .card-difference {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>June Jayson Culanag</h1>
+    <p>Student | BSIS-1</p>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <section id="about">
+    <h2>About Me</h2>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px; padding: 20px; background: linear-gradient(135deg, #1f3a3a, #123232); border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.6);">
+        <img src="me.jpg" alt="Picture of June Jayson Culanag" class="profile-pic" style="width: 200px; height: 200px; border: 5px solid #4db6ac; transition: transform 0.3s;">
+        <div style="flex: 1; min-width: 250px;">
+            <p style="font-size: 1.1em; margin-bottom: 15px;"> 
+                Hello! I am <strong>June Jayson M. Culanag </strong>Welcome to my ITC portfolio            </p>
+            <p style="font-size: 1.05em; line-height: 1.6;">
+                I want share what I learned in my ITC classes to those who views my portfolio          </p>
+            <p style="margin-top: 20px; font-weight: bold; color: #80cbc4;">Student | BSIS-1</p>
+        </div>
+    </div>
+</section>
+
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+
+        <h3 class="post-title">AREAS OF COMPUTER SCIENCE</h3>
+               <img src="areaOCS.jpg" alt="Web Design Infographic" class="infographic">
+
+        <h3 class="post-title">DATA, INFORMATION, AND KNOWLEDGE</h3>
+                <img src="INFORMATION.png" alt="Information Infographic" class="infographic">
+
+
+        <h3 class="post-title">SOFTWARE AND APPLICATION CONCEPTS</h3>
+                <img src="spe.jpg" alt="Information Infographic" class="infographic">
+ <img src="gen.jpg" alt="Information Infographic" class="infographic">
+
+<h3 class="post-title">DATA AND DATABASE</h3>
+               <img src="DATA.jpg" alt="Web Design Infographic" class="infographic">
+
+
+<h3 class="post-title">COMMON NUMBER SYSTEMS</h3>
+               <img src="3i.jpg" alt="Web Design Infographic" class="infographic">
+<img src="2i.jpg" alt="Web Design Infographic" class="infographic">
+<img src="1i.jpg" alt="Web Design Infographic" class="infographic">
+        <!-- Infographic 3: Uses of Computer Systems -->
+        <h3 class="post-title">USES OF COMPUTER SYSTEMS</h3>
+        <div class="infographic3">
+            <div class="card">
+                <h3>Business & Finance</h3>
+                <p>Managing accounts, payroll, inventory, online banking, digital transactions, and data analytics for smart decision-making.</p>
+            </div>
+            <div class="card">
+                <h3>Education</h3>
+                <p>Online learning platforms, virtual classrooms, research, digital libraries, and e-books for modern education.</p>
+            </div>
+            <div class="card">
+                <h3>Healthcare</h3>
+                <p>Patient record management, diagnostic tools, medical imaging, telemedicine, and health monitoring devices.</p>
+            </div>
+            <div class="card">
+                <h3>Communication</h3>
+                <p>Email, messaging apps, social media, video conferencing, and real-time global information sharing.</p>
+            </div>
+            <div class="card">
+                <h3>Entertainment</h3>
+                <p>Streaming music, movies, games, VR/AR experiences, and digital content creation and sharing.</p>
+            </div>
+            <div class="card">
+                <h3>Science & Research</h3>
+                <p>Data analysis, simulations, modeling, space exploration, climate studies, and lab experiment management.</p>
+            </div>
+            <div class="card">
+                <h3>Government & Public Services</h3>
+                <p>E-governance, citizen services, traffic management, public safety, census, and statistical data management.</p>
+            </div>
+        </div>
+<h3 class="post-title">IPOS Devices, Internal and External Parts</h3>
+                <img src="IPOS.jpg" alt="Information Infographic" class="infographic">
+<h3 class="post-title">Software Application Types</h3>
+                <img src="HII.jpg" alt="Information Infographic" class="infographic">
+
+        
+        <!-- Infographic 4: Algorithms, Pseudocode, Flowcharts -->
+        <h3 class="post-title">ALGORITHMS, PSEUDOCODE, AND FLOWCHARTS</h3>
+        <div class="flowchart">
+            <div class="card">
+                <h2>Algorithm</h2>
+                <p>An algorithm is a step-by-step procedure designed to solve a specific problem efficiently. It provides a clear plan for completing tasks correctly and consistently.</p>
+            </div>
+            <div class="arrow"></div>
+            <div class="card">
+                <h2>Pseudocode</h2>
+                <p>Pseudocode is a way of expressing an algorithm using plain, human-readable language. It allows programmers to plan the logic of their program without worrying about programming syntax.</p>
+            </div>
+            <div class="arrow"></div>
+            <div class="card">
+                <h2>Flowchart</h2>
+                <p>Flowcharts are diagrams that visually represent the steps of an algorithm using symbols and arrows. They make it easier to understand the process flow.</p>
+            </div>
+            <div class="arrow"></div>
+            <div class="card-difference">
+                <h2>Differences</h2>
+                <p>Pseudocode is textual and flexible, ideal for planning logic. Flowcharts are visual, showing the flow of a process, which helps communicate the algorithm to others clearly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="essay">
+    <h2>HOW DATA IS TRANSFORMED TO KNOWLEDGE (ESSAY)</h2>
+
+    <p>In today’s age, data is constantly being collected, but raw data alone has little value unless it is transformed into meaningful knowledge. A clear example of this process can be seen in a school setting where student performance data is collected and analyzed to improve learning outcomes. This situation demonstrates how data moves through several transformation stages which are data collection, data processing, information creation, and knowledge generation.</p>
+
+    <p>The first stage is data collection. In a classroom, teachers gather raw data from quizzes, exams, attendance records, and assignment submissions. At this point, the data consists of isolated facts such as scores, dates of absences, and submission times. These numbers and records have no context yet; they simply represent observations about student activities and performance.</p>
+
+    <p>The second stage is data processing and organization. The collected data is then encoded and organized using spreadsheets or learning management systems. Scores are sorted by subject, student name, or date, and errors such as duplicate entries or missing values are corrected. Calculations like averages, totals, and percentages are performed. For example, individual quiz scores may be combined to compute a student’s overall grade in mathematics. At this stage, the data becomes more structured and easier to interpret.</p>
+
+    <p>The third stage is information creation. This happens when processed data is turned into information that is easy to understand, such as tables, charts, or reports. For example, a bar graph showing test scores over time can show if a student is getting better or worse. Attendance summaries can show patterns, like missing school on certain days. This information helps answer simple questions like “What is happening?” or “How are students doing?”</p>
+
+    <p>The final stage is knowledge generation. Knowledge is created when teachers, administrators, or students interpret the information and use it to make decisions. For instance, if the information shows that many students performed poorly on a particular topic, a teacher may conclude that the lesson needs to be reviewed or taught using a different approach. Similarly, consistent low performance combined with high absenteeism may lead to interventions such as counseling or additional academic support. At this point, experience, context, and judgment are applied, turning information into actionable understanding.</p>
+
+    <p>In conclusion, the transformation of student performance data into knowledge shows how raw data gains value through careful processing and interpretation. Each stage from collection to knowledge plays an essential role in ensuring that data is not just stored, but used effectively to improve teaching strategies and enhance student learning.</p>
+</section>
+   <section id="contact">
+    <h2>Contact Me</h2>
+    <div style="display: flex; flex-direction: column; gap: 20px; max-width: 600px; margin: auto; background-color: #1c1c1c; padding: 25px; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.5);">
+        <p style="font-size: 1.1em;">You can reach me via email or phone:</p>
+        <p>Email: <strong>cjunejayson@gmail.com</strong></p>
+        <p>Phone: <strong>09623167260</strong></p>
+
+        <h3 style="margin-top: 20px; color: #4db6ac;">Send me a message</h3>
+        <form action="mailto:cjunejayson@gmail.com" method="post" enctype="text/plain" style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="text" name="name" placeholder="Your Name" required
+                   style="padding: 10px; border-radius: 8px; border: 1px solid #333; background-color: #2c2c2c; color: #e0e0e0;">
+            <input type="email" name="email" placeholder="Your Email" required
+                   style="padding: 10px; border-radius: 8px; border: 1px solid #333; background-color: #2c2c2c; color: #e0e0e0;">
+            <textarea name="message" placeholder="Your Message" rows="5" required
+                      style="padding: 10px; border-radius: 8px; border: 1px solid #333; background-color: #2c2c2c; color: #e0e0e0; resize: vertical;"></textarea>
+            <button type="submit" 
+                    style="padding: 12px; border-radius: 8px; border: none; background-color: #4db6ac; color: #121212; font-weight: bold; cursor: pointer; transition: background 0.3s;">
+                Send Message
+            </button>
+        </form>
+        <p style="margin-top: 10px; font-size: 0.9em; color: #999;">*You can also email me directly at <strong>cjunejayson@gmail.com</strong>.</p>
+    </div>
+</section>
+
+</div>
+
+<footer>
+    </footer>
+
+</body>
+</html>
