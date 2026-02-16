@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>June Culanag</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello, I'm June Culanag👋</h1>
+        <p>Welcome to my simple website!</p>
+        <p>This is my personal page created with HTML.</p>
+        <button onclick="showMessage()">Click Me</button>
+        <p id="message"></p>
+
+    </div>
+    <script>
+        function showMessage() {
+            document.getElementById("message").innerHTML = "Thanks for visiting my website!";
+        }
+
+</body>
+</html>
