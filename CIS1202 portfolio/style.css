@@ -1,0 +1,269 @@
+/* Professional Color Scheme - CSS Variables */
+:root {
+    --primary-color: #f69402;      /* Deep Blue */
+    --secondary-color: #7c3aed;    /* Purple */
+    --accent-color: #f97316;       /* Orange */
+    --background-color: #f8fafc;   /* Light Gray */
+    --text-color: #1e293b;         /* Dark Gray */
+    --light-text: #64748b;         /* Medium Gray */
+    --white: #ffffff;
+    --border-color: #e2e8f0;       /* Light Border */
+    --success-color: #16a34a;      /* Green */
+    --error-color: #dc2626;        /* Red */
+}
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 2rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+header p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Navigation Bar - Flexbox Styling */
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav li {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+}
+
+nav a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav a:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Styling */
+section {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 0.75rem;
+}
+
+section h3 {
+    color: var(--secondary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* List Styling */
+ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    color: var(--light-text);
+}
+
+/* Horizontal Rule */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+    margin: 2rem 0;
+}
+
+/* Form Styling */
+form {
+    max-width: 500px;
+    margin: 1.5rem auto;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--text-color);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+#dark-mode-toggle {
+    width: auto;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--white);
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+#dark-mode-toggle:hover {
+    background-color: var(--white);
+    color: var(--text-color);
+    transform: scale(1.05);
+}
+
+/* Dark Mode Styles */
+html.dark-mode {
+    --primary-color: #60a5fa;      /* Light Blue */
+    --secondary-color: #a78bfa;    /* Light Purple */
+    --accent-color: #fb923c;       /* Light Orange */
+    --background-color: #0f172a;   /* Very Dark Blue */
+    --text-color: #e2e8f0;         /* Light Gray */
+    --light-text: #cbd5e1;         /* Lighter Gray */
+    --border-color: #334155;       /* Dark Border */
+}
+
+html.dark-mode body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+html.dark-mode section {
+    background-color: #1e293b;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+html.dark-mode input[type="text"],
+html.dark-mode input[type="email"],
+html.dark-mode textarea {
+    background-color: #1e293b;
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+html.dark-mode footer {
+    background-color: #0f172a;
+    border-top: 2px solid var(--border-color);
+}
+
+html.dark-mode #dark-mode-toggle:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    nav li {
+        width: 100%;
+    }
+    
+    section {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}
