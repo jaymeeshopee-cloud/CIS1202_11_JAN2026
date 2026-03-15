@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Raffle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wheel-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 30px;
+        }
+
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.05s linear;
+        }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid #333;
+            z-index: 10;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .input-section {
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #764ba2;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .entries-list {
+            margin-bottom: 30px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .entry-item {
+            background: #f5f5f5;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .entry-item button {
+            padding: 6px 12px;
+            background: #ff6b6b;
+            font-size: 14px;
+        }
+
+        .entry-item button:hover {
+            background: #ff5252;
+        }
+
+        .draw-section {
+            text-align: center;
+        }
+
+        .draw-button {
+            padding: 15px 40px;
+            font-size: 18px;
+            background: #51cf66;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .draw-button:hover {
+            background: #40c057;
+        }
+
+        .winner-display {
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .winner-display.show {
+            display: block;
+        }
+
+        .spinner {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: white;
+            font-weight: bold;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .winner-text {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .winner-name {
+            font-size: 36px;
+            color: #667eea;
+            font-weight: bold;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .confetti {
+            position: fixed;
+            pointer-events: none;
+        }
+
+        .winner-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .winner-actions button {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        .remove-winner-btn {
+            background: #ff6b6b;
+        }
+
+        .remove-winner-btn:hover {
+            background: #ff5252;
+        }
+
+        .next-draw-btn {
+            background: #51cf66;
+        }
+
+        .next-draw-btn:hover {
+            background: #40c057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎰 E-Raffle</h1>
+
+        <div class="input-section">
+            <div class="input-group">
+                <input type="text" id="entryInput" placeholder="Enter participant name">
+                <button onclick="addEntry()">Add Entry</button>
+            </div>
+            <div class="entries-list" id="entriesList"></div>
+        </div>
+
+        <div class="draw-section">
+            <button class="draw-button" onclick="drawWinner()">🎲 Draw Winner</button>
+            <div class="winner-display" id="winnerDisplay">
+                <div class="spinner" id="spinner"></div>
+                <div class="winner-text">Winner:</div>
+                <div class="winner-name" id="winnerName"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let entries = [];
+
+        function addEntry() {
+            const input = document.getElementById('entryInput');
+            const name = input.value.trim();
+
+            if (name === '') {
+                alert('Please enter a name');
+                return;
+            }
+
+            entries.push(name);
+            input.value = '';
+            renderEntries();
+        }
+
+        function removeEntry(index) {
+            entries.splice(index, 1);
+            renderEntries();
+        }
+
+        function renderEntries() {
+            const list = document.getElementById('entriesList');
+            list.innerHTML = entries.map((entry, index) => `
+                <div class="entry-item">
+                    <span>${entry}</span>
+                    <button onclick="removeEntry(${index})">Remove</button>
+                </div>
+            `).join('');
+        }
+
+        function drawWinner() {
+            if (entries.length === 0) {
+                alert('Add entries before drawing');
+                return;
+            }
+
+            const display = document.getElementById('winnerDisplay');
+            display.classList.add('show');
+
+            let spins = 0;
+            const maxSpins = 30;
+
+            const interval = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * entries.length);
+                document.getElementById('spinner').textContent = entries[randomIndex];
+                spins++;
+
+                if (spins === maxSpins) {
+                    clearInterval(interval);
+                    const finalIndex = Math.floor(Math.random() * entries.length);
+                    document.getElementById('spinner').style.animation = 'none';
+                    document.getElementById('winnerName').textContent = entries[finalIndex];
+                    createConfetti();
+                }
+            }, 50);
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.backgroundColor = ['#667eea', '#764ba2', '#51cf66'][Math.floor(Math.random() * 3)];
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.borderRadius = '50%';
+                document.body.appendChild(confetti);
+
+                let top = -10;
+                const left = parseFloat(confetti.style.left);
+                const speed = Math.random() * 5 + 3;
+
+                const fall = setInterval(() => {
+                    top += speed;
+                    confetti.style.top = top + 'px';
+                    if (top > window.innerHeight) {
+                        clearInterval(fall);
+                        confetti.remove();
+                    }
+                }, 20);
+            }
+        }
+
+        document.getElementById('entryInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') addEntry();
+        });
+    </script>
+</body>
+</html>
